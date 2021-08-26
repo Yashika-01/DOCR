@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Navbar Animation</title>
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="menu">
+          <h3 class="logo">D<span>OCR</span></h3>
+          <div class="user-menu">
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div class="main">
+          <header>
+            <div class="overlay">
+              <div class="inner">
+                <h2 class="title">Our Services</h2>
+                <div class="cards">
+                  <div class="card">
+                    <div class="face face1">
+                      <div class="content">
+                        <img src="sketch.png" width="300px" height="200px">
+                        <h3>DIGITIZATION</h3>
+                      </div>
+                    </div>
+                    <div class="face2 face">
+                      <div class="content">
+                        <p>Digitize Handwritten Documents with the help of this feature</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="face face1">
+                      <div class="content">
+                        <img src="data.png" width="300px" height="200px">
+                        <h3>PLAGIARISM CHECK</h3>
+                      </div>
+                    </div>
+                    <div class="face2 face">
+                      <div class="content">
+                        <p>Digitize Handwritten Documents with the help of this feature</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </header>
+        </div>
+
+        <div class="shadow one"></div>
+        <div class="shadow two"></div>
+      </div>
+
+      <div class="links">
+        <ul>
+          <li>
+            <a href="#" style="--i: 0.05s;"><img src="user-16.png" width="30px" height="30px">|  Your Account</a>
+          </li>
+          <li>
+            <a href="#" style="--i: 0.1s;"><img src="pdf-16.png" width="30px" height="30px">|  Your PDF's</a>
+          </li>
+          <li>
+            <a href="#" style="--i: 0.15s;"><img src="report.png" width="30px" height="30px">|  Your Plagiarism Reports</a>
+          </li>
+          <li>
+            <a href="#" style="--i: 0.2s;"><img src="coins-512.png" width="30px" height="30px">|  Subscription Status</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      const hamburger_menu = document.querySelector(".user-menu");
+      const container = document.querySelector(".container");
+
+      hamburger_menu.addEventListener("click", () => {
+        container.classList.toggle("active");
+      });
+
+    </script>
+  </body>
+</html>
