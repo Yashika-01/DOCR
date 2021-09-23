@@ -5,5 +5,5 @@ from django.shortcuts import render, HttpResponse
 def index(request):
       return render(request, 'index.html')
 
-def home(request):
-      return HttpResponse("<h1>Homepage</h1>")
+def sign(request):
+      return render(request, 'sign.html')
