@@ -8,3 +8,4 @@ def index(request):
 
 def home(request):
       return HttpResponse("<h1>Homepage</h1>")
+      
