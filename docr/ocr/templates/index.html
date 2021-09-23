@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nuno - Responsive Bootstrap Theme</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+	<link rel="stylesheet" href="{% static 'style.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/fixed.css' %}" />
+</head>
+
+<body data-spy="scroll" data-target="#navbarResponsive">
+
+<!---Start Home Section-->
+<div id="home">
+
+	<!--Navigation-->
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#"><img src="/static/img/logo.png" height="50px"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#home">HOME</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#info">ABOUT</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#features">FEATURES</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#contact">CONTACT US</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!--End Navigation-->
+	<!----Start Landing Page Section-->
+	<div class="landing">
+		<div class="home-wrap">
+			<div class="home-inner">
+			</div>
+		</div>
+	</div>
+	<div class="caption text-center">
+		<h1>WELCOME TO DOCR</h1>
+		<h3>DIGITIZE HANDWRITTEN DOCUMENTS</h3>
+		<a class="btn btn-outline-light btn-lg" href="#info">Get Started</a>
+	</div>
+	<!----End Landing Page Section-->
+</div>
+<!---End Home Section-->
+
+<!--- Start Info Section -->
+<div id="info" class="offset">
+	<div class="jumbotron">
+		<div class="col-12 text-center">
+			<h3 class="heading">ABOUT US</h3>
+			<div class="heading-underline"></div>
+		</div>
+		<div class="col-12 narrow text-center">
+			<h1>Create Editable Documents Using Text Recognition</h1>
+			<p class="lead">Handwritten Documents will be converted into Editable Documents using Text Recognition 
+				and can also be given to check for plagiarism! </p>
+			<a class="btn btn-secondary btn-md" href="#Join Us">Join Us</a>
+		</div>
+</div>
+</div>
+<!--- End Info Section -->
+
+<!--- Start Features  Section -->
+<div id="features" class="offset">
+	<div class="fixed-background">
+		<div class="row dark text-center">
+			<div class="col-12">
+				<h3 class="heading">Features</h3>
+				<div class="heading-underline"></div>
+			</div>
+
+			<div class="col-md-4">
+				<h3>OCR</h3>
+				<div class="feature">
+					<i class="fas fa-scroll fa-3x"></i>
+				</div>
+				<p class="lead">Digitize Handwritten Documents</p>
+			</div>
+			<div class="col-md-4">
+				<h3>PLAGIARISM</h3>
+				<div class="feature">
+					<i class="fas fa-search fa-3x"></i>
+				</div>
+				<p class="lead">Check For Plagiarism</p>
+			</div>
+			<div class="col-md-4">
+				<h3>STORE PDF's</h3>
+				<div class="feature">
+					<i class="fas fa-file-pdf fa-3x"></i>
+				</div>
+				<p class="lead">Store your PDF's</p>
+			</div>
+
+		</div><!---End Dark Row-->
+		<div class="fixed-wrap">
+			<div class="fixed">
+			</div>
+		</div>
+	</div><!----End Fixed Background-->
+</div>
+<!--- End Features Section -->
+
+<!--- Start Contact Section -->
+<div id="contact" class="offset">
+	<footer>
+		<div class="row justify-content-center">
+			<div class="col-md-5 text-center">
+				<img src="/static/img/logo.png">
+				<p>We provide Handwritten OCR facility which can be used for digitizing
+					exam papers and assignments and then check the same for plagiarism.
+					The PDF files can be stored efficiently using the facility of PDF storage </p>
+				<strong>Contact Info</strong>
+				<p>(999) 999-9999<br>email@docr.com</p>
+				<a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-twitter-square"></i></a>
+				<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+			</div>
+			<hr class="socket">
+			&copy;Docr Theme.
+		</div>
+	</footer>
+</div>
+<!--- End Contact Section -->
+
+<!--- Script Source Files -->
+
+<script src="static/js/jquery-3.3.1.min.js"></script>
+<script src="static/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+<!--- End of Script Source Files -->
+
+</body>
+</html>
