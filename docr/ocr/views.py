@@ -1,8 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
-from ocr.models import user_info
+from ocr.models import user_info, Image
 from django.contrib.auth import get_user_model
+from .forms import ImageForm
+
 # from django_email_verification import sendConfirm
 
 # Create your views here.
@@ -34,8 +36,14 @@ def sign(request):
 #       return render(request, 'confirm_template.html')
 
 
-
-
 def success(request):
       return render(request, 'success.html')
 
+def digitize(request):
+      if request.method== 'POST':
+            form = ImageForm(request.POST, request.FILES)
+            if form.is_valid():
+                  form.save()
+      form = ImageForm()
+      img = Image.objects.all()
+      return render(request, 'digitize.html', {'img':img,'form':form})

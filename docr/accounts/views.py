@@ -40,7 +40,7 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'Login successful')
-            return redirect('register')
+            return render(request, 'landing.html')
         else:
             messages.error(request, 'Invalid credentials')
             return redirect('register')
