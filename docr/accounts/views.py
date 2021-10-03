@@ -1,8 +1,10 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
-
+from ocr.models import Image
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate
+import os
+import glob
 # Create your views here.
 
 def register(request):
@@ -55,6 +57,18 @@ def login(request):
 
 
 def logout(request):
+    path = f'media/img/'
+    if os.listdir(path) == []:
+        print('No images found')
+    else:
+        print('images found')
+        files = glob.glob('media/img/*')
+        for f in files:
+            print(f)
+            os.remove(f)
+        Image.objects.all().delete()
     request.session.clear()
     print('deleted session')
-    return redirect('index')
+    messages.info(request, 'Adios!, hope to see you soon buddy...')
+    print('Adios!, hope to see you soon buddy...')
+    return render(request, 'index.html')

@@ -1,12 +1,16 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
+from django.http import FileResponse
 from django.contrib.auth.models import User, auth
 from ocr.models import Image
 from django.contrib.auth import get_user_model
 from .forms import ImageForm
 import os
 from django.views.decorators.csrf import csrf_exempt
+from fpdf import FPDF
+import glob
 
+from django.db import models
 # from django_email_verification import sendConfirm
 
 # Create your views here.
@@ -63,6 +67,44 @@ def digitize(request):
             return render(request, 'digitize.html',{'img': img, 'form': form})
       form = ImageForm()
       return render(request, 'digitize.html',{'form': form})
+
+def makepdf(request):
+      from PIL import Image
+      pdf = FPDF()
+      sdir = "media/img/"
+      w, h = 0,0
+
+      files = glob.glob("media/img/*")
+      filecount = len(files)
+      for i in range(1, filecount+1):
+            fname = sdir + "img%.d.jpg" %i
+            if os.path.exists(fname):
+                  if i ==1:
+                        page = Image.open(fname)
+                        w, h = page.size
+                        pdf = FPDF(unit='pt', format=[w,h])
+                  image = fname
+                  pdf.add_page()
+                  pdf.image(image, 0, 0, w, h)
+            else:
+                  print('File not found: ', fname)
+                  print('Processed %d' % i)
+
+      pdf.output('media/img/Converted_pdf.pdf', "F")
+      print('successfully converted ')
+      path = "media/img/Converted_pdf.pdf"
+      messages.info(request, 'PDF converted succesfully..')
+      return FileResponse(open(path, 'rb'), content_type='application/pdf')
+
+
+
+
+
+
+
+
+
+
 
 def plagiarism(request):
       pass

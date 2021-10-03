@@ -31,10 +31,11 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-                    <form action="logout" method="post" class="nav-link">
+                    <a class="nav-link"  href="{% url 'logout' %}" onclick="logout()">Logout</a>
+                    <!-- <form action="logout" method="post" class="nav-link">
                      {% csrf_token %}   
 					<button class="nav-link" type="submit">LOG OUT</button>
-                    </form>
+                    </form> -->
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#info">YOUR PDF's</a>
