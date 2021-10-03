@@ -5,8 +5,10 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    # path('sessions', views.sessions, name='sessions'),
     path('success', views.success, name='success'),
-    path('digitize', views.digitize, name='digitize')
+    path('digitize', views.digitize, name='digitize'),
+    path('plagiarism', views.plagiarism, name='plagiarism')
     # path('email', include(mail_urls))
 
 ]
