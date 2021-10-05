@@ -9,6 +9,7 @@ import os
 from django.views.decorators.csrf import csrf_exempt
 from fpdf import FPDF
 import glob
+from ocr.vision import gcs
 
 from django.db import models
 # from django_email_verification import sendConfirm
@@ -74,12 +75,19 @@ def makepdf(request):
       sdir = "media/img/"
       w, h = 0,0
 
+      files = []
       files = glob.glob("media/img/*")
+      print(files)
+      files.sort()
+      print(files)
       filecount = len(files)
-      for i in range(1, filecount+1):
-            fname = sdir + "img%.d.jpg" %i
+      for i in range(0, filecount):
+            c = files[i]
+            a,b,c = c.split('/')
+            fname = sdir + c
+            print(fname)
             if os.path.exists(fname):
-                  if i ==1:
+                  if i == 0:
                         page = Image.open(fname)
                         w, h = page.size
                         pdf = FPDF(unit='pt', format=[w,h])
@@ -90,21 +98,82 @@ def makepdf(request):
                   print('File not found: ', fname)
                   print('Processed %d' % i)
 
-      pdf.output('media/img/Converted_pdf.pdf', "F")
+      
+
+      # pdf.output('media/img/Converted_pdf.pdf', "F")
+      pdf.output('/home/neha/Downloads/Converted_pdf.pdf', "F")
       print('successfully converted ')
-      path = "media/img/Converted_pdf.pdf"
-      messages.info(request, 'PDF converted succesfully..')
+      res = clean()
+      if res == 'done':
+            print('images deleted successfully..')
+      # path = "media/img/Converted_pdf.pdf"
+      path = "/home/neha/Downloads/Converted_pdf.pdf"
+      
       return FileResponse(open(path, 'rb'), content_type='application/pdf')
 
 
-
-
-
-
-
-
+def clean():
+      path = f'media/img/'
+      if os.listdir(path) == []:
+            print('No images found')
+      else:
+            print('images found')
+            files = glob.glob('media/img/.jpg')
+            for f in files:
+                  print(f)
+                  os.remove(f)
+            Image.objects.all().delete()
+      return 'done'
 
 
 
 def plagiarism(request):
       pass
+
+
+def vision(request):
+      # files = []
+      # files = glob.glob("media/img/*")
+      # print(files)
+      # files.sort()
+      # print(files)
+
+      # filecount = len(files)
+      # r = 'Extracted text: \n'
+      # for i in range(0, filecount):
+      #       resp = vision()
+      #       r = r + resp
+      #       i = i +1
+      if request.method == 'POST':
+            print('hello')
+            sdir = "media/img/"
+            files = []
+            files = glob.glob("media/img/*")
+            print(files)
+            files.sort()
+            print(files)
+            filecount = len(files)
+            r = 'Extracted text: \n'
+            for i in range(0, filecount):
+                  c = files[i]
+                  a,b,c = c.split('/')
+                  fname = sdir + c
+                  print(fname)
+                  if os.path.exists(fname):
+                        # if i == 0:
+                        #       page = Image.open(fname)
+                        #       w, h = page.size
+                        #       pdf = FPDF(unit='pt', format=[w,h])
+                        resp = gcs(fname)
+                        r = r + resp
+                  else:
+                        print('File not found: ', fname)
+                        print('Processed %d' % i)
+            print(r)
+            var = r
+            return render(request, 'success.html', {'container': var} )
+
+
+def sleepy(request):
+      var = 'I is very sleepy'
+      return render(request, 'success.html', )

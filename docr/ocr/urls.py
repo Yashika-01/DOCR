@@ -10,6 +10,9 @@ urlpatterns = [
     path('digitize', views.digitize, name='digitize'),
     path('plagiarism', views.plagiarism, name='plagiarism'),
     path('makepdf', views.makepdf, name='makepdf'),
+    path('vision', views.vision, name='vision'),
+    path('sleepy', views.sleepy, name='sleepy'),
+
 
     # path('email', include(mail_urls))
 
