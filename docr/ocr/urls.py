@@ -12,6 +12,8 @@ urlpatterns = [
     path('makepdf', views.makepdf, name='makepdf'),
     path('vision', views.vision, name='vision'),
     path('sleepy', views.sleepy, name='sleepy'),
+    path('saving', views.saving, name='saving'),
+    path('continued', views.continued, name='continued'),
 
 
     # path('email', include(mail_urls))

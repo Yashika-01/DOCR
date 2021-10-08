@@ -4,6 +4,7 @@ body{
   overflow-x:hidden;
   font-family: 'Lato', sans-serif;
   color: #505962;
+  background-image: url('static/img/landing.jpg');
   
 }
 
@@ -44,9 +45,8 @@ body{
 /*----Landing Page-----*/
 .home-inner {
   
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
-    url('static/img/landing.jpg');
-    background-image: url('static/img/landing.jpg');
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url(img/landing.jpg);
+
   background-size: cover;
 }
 .caption{

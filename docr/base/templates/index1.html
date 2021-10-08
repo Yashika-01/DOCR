@@ -1,0 +1,175 @@
+{%load static%}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Nuno - Responsive Bootstrap Theme</title>
+	<link rel="stylesheet" href="{% static 'bootstrap-4.1.3-dist/css/bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'style3.css'%}">
+	<link rel="stylesheet" href="{% static 'css/fixed.css'%}">
+</head>
+
+<body data-spy="scroll" data-target="#navbarResponsive">
+
+<!---Start Home Section-->
+<div id="home">
+
+	<!--Navigation-->
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="#"><img src="{% static 'img/logo.png'%}" height="50px"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">LOG OUT</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#info">YOUR PDF's</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#features">PLAGIARISM REPORTS</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#contact">CONTACT US</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!--End Navigation-->
+	<!----Start Landing Page Section-->
+	<div id="" class="offset">
+        <div class="fixed-background">
+            <div class="row dark text-center">
+                <div class="col-12">
+                    <h3 class="heading">OUR PRICING PLAN</h3>
+                    <div class="heading-underline"></div>
+                </div>
+                <div class="pricing-area">
+                    <div class="conatainer">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6">
+                                <div class="single-price">
+                                    <div class="price-header">
+                                        <h3 class="title">Professional</h3>
+                                    </div>
+                                    <div class="price-value">
+                                        <div class="value">
+                                            <span class="amount">₹19.<span>99</span>
+                                            <span class="month">/month</span>
+                                        </div>
+                                    </div>
+                                    <ul class="deals">
+                                        <li>OCR Scanning</li>
+                                        <li>Plagiarism Check</li>
+                                       </ul>
+                                       <form action="success" method="POST">
+                                        {% csrf_token %}  
+                                            <script src="https://checkout.razorpay.com/v1/checkout.js" 
+                                            data-key="rzp_test_QcFK6enY6yUXQ7"
+                                            data-amount="1990" 
+                                            data-currency="INR" 
+                                            data-order_id="{{payment.id}}" 
+                                            data-buttontext="Get Started"
+                                            data-name="Docr Project" 
+                                            data-description="Docr Payment"
+                                            data-image="img/logo.png" 
+                                            data-prefill.name="PC" 
+                                            data-prefill.email="abc@gmail.com"
+                                            data-theme.color="#F37254"></script> 
+                                        </form>  
+                                    <!-- <a href="price1">Get Started</a> -->
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="single-price">
+                                    <div class="price-header">
+                                        <h3 class="title">Corporate</h3>
+                                    </div>
+                                    <div class="price-value">
+                                        <div class="value">
+                                            <span class="amount">₹39.<span>99</span>
+                                            <span class="month">/3month</span>
+                                        </div>
+                                    </div>
+                                    <ul class="deals">
+                                        <li>OCR Scanning</li>
+                                        <li>Plagiarism Check</li>
+                                        </ul>
+                                        <form action="success" method="POST">
+                                            {% csrf_token %}  
+                                                <script src="https://checkout.razorpay.com/v1/checkout.js" 
+                                                data-key="rzp_test_QcFK6enY6yUXQ7"
+                                                data-amount="4990" 
+                                                data-currency="INR" 
+                                                data-order_id="{{payment.id}}" 
+                                                data-buttontext="Get Started"
+                                                data-name="Docr Project" 
+                                                data-description="Docr Payment"
+                                                data-image="{% static 'img/logo.png'%}" 
+                                                data-prefill.name="PC" 
+                                                data-prefill.email="abc@gmail.com"
+                                                data-theme.color="#F37254"></script> 
+                                            </form>  
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="single-price">
+                                    <div class="price-header">
+                                        <h3 class="title">Enterprise</h3>
+                                    </div>
+                                    <div class="price-value">
+                                        <div class="value">
+                                            <span class="amount">₹99.<span>99</span>
+                                            <span class="month">/6month</span>
+                                        </div>
+                                    </div>
+                                    <ul class="deals">
+                                        <li>OCR Scanning</li>
+                                        <li>Plagiarism Check</li>
+                                    </ul>
+                                    <form action="success" method="POST">
+                                        {% csrf_token %}  
+                                            <script src="https://checkout.razorpay.com/v1/checkout.js" 
+                                            data-key="rzp_test_QcFK6enY6yUXQ7"
+                                            data-amount="9990" 
+                                            data-currency="INR" 
+                                            data-order_id="{{payment.id}}" 
+                                            data-buttontext="Get Started"
+                                            data-name="Docr Project" 
+                                            data-description="Docr Payment"
+                                            data-image="{% static 'img/logo.png'%}" 
+                                            data-prefill.name="PC" 
+                                            data-prefill.email="abc@gmail.com"
+                                            data-theme.color="#F37254"></script> 
+                                        </form>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+    
+            </div><!---End Dark Row-->
+            <div class="fixed-wrap">
+                <div class="fixed">
+                </div>
+            </div>
+        </div><!----End Fixed Background-->
+    </div>
+	<!----End Landing Page Section-->
+</div>
+<!---End Home Section-->
+
+
+<!--- Script Source Files -->
+<script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+<script src="{% static 'bootstrap-4.1.3-dist/js/bootstrap.min.js'%}"></script>
+<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+<!--- End of Script Source Files -->
+
+</body>
+</html>

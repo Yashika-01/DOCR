@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ocr.apps.OcrConfig',
-    'django_email_verification',
+    'base',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'user_info',
         'USER': 'postgres',
-       'PASSWORD': 'root',
+       'PASSWORD': 'postgres',
        'HOST': '127.0.0.1',
        'PORT': '5432',
 

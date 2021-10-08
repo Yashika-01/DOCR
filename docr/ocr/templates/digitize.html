@@ -65,54 +65,53 @@
         </div>
       </nav>
     </div>
-     
-    
-
-
     <div id="" class="offset">
       <div class="fixed-background">
           <div class="row dark text-center">
               <div class="col-12">
-                  <h3 class="heading">Welcome</h3>
-                  <h3 class="heading">Work with images</h3>
+                  <h1  class="heading">WORK WITH IMAGES</h1>
                   <div class="heading-underline"></div>
               </div>
               <div class="container">
-                <div class="py-5 text-center bg-secondary bg-gradient bg-opacity-25 text-white">
-                  <h1 class="mb-3">Upload image</h1>
-                  <form action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{form}}
-                    <input type="submit" class="btn btn-danger" value="Upload">
-                  </form>
-                </div>
-                <div class="py-5 text-center">
-                  <form action='vision' method="POST">
-                    {% csrf_token %}
-                    <input type="submit" class="btn btn-danger" value="Digitize" onclick="vision()">
-                  </form>
-                    <!-- <input type="button" class="btn btn-danger" value="Digitize" onclick="vision()"> -->
-                    <input type="button" class="btn btn-danger" value="Check plagiarism" onclick="plagiarism()">
-                    <!-- <form action="makepdf" method="post" enctype="multipart/form-data">
-                      {% csrf_token %} -->
-                      <!-- <button type="submit" class="btn btn-danger" value="Make PDFs">          </button> -->
-                      <input type="button" class="btn btn-danger" value="Make PDFs" onclick="window.open('makepdf')">
-                    <!-- </form> -->
-          
-                </div>
-                <div class="row">
-                  {% for x  in img %}
-                  <div class="col sm-4">
-                    <div class="card m-2">
-                      <img src="{{x.photo.url}}" alt="" class="card-img-top" height="200px" width="200px"> 
-          
+                <div id="info" class="offset">
+                  <div class="jumbotron">
+                    <div class="py-5 text-center bg-dark bg-gradient bg-opacity-25 text-white">
+                      <h1 class="mb-3">Upload image</h1>
+                      <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{form}}
+                        <input type="submit" class="btn btn-info" value="Upload">
+                      </form>
                     </div>
-          
+                    <div class="py-5 text-center">
+                      <form action='vision' method="POST">
+                        {% csrf_token %}
+                        <input type="submit" class="btn btn-secondary" value="Digitize" onclick="vision()">
+                      </form>
+                        <!-- <input type="button" class="btn btn-danger" value="Digitize" onclick="vision()"> -->
+                        <input type="button" class="btn btn-secondary" value="Check plagiarism" onclick="sub()">
+                        <!-- <form action="makepdf" method="post" enctype="multipart/form-data">
+                          {% csrf_token %} -->
+                          <!-- <button type="submit" class="btn btn-danger" value="Make PDFs">          </button> -->
+                          <input type="button" class="btn btn-secondary" value="Make PDFs" onclick="window.open('makepdf')">
+                        <!-- </form> -->
+              
+                    </div>
+                    <div class="row">
+                      {% for x  in img %}
+                      <div class="col sm-4">
+                        <div class="card m-2">
+                          <img src="{{x.photo.url}}" alt="" class="card-img-top" height="200px" width="200px"> 
+              
+                        </div>
+              
+                      </div>
+                      {% endfor  %}
+                    </div>
                   </div>
-                  {% endfor  %}
                 </div>
               </div>
-  
+      
               
   
           </div><!---End Dark Row-->

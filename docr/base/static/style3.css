@@ -1,0 +1,130 @@
+
+/*-----Pricing Plan----*/
+.pricing-area{
+    padding: 40px 0;
+    align-items: center;
+    background-color: #40474e;
+    justify-content: center;
+  }
+  .single-price{
+    padding-bottom: 25px;
+    padding-left: 25px;
+    background-color:#262626;
+    text-align: center;
+    overflow:hidden;
+    position:relative;
+    transition:all .3s ease-in-out;
+    box-shadow:0 5px 20px rgba(0,0,0,0.7);
+    width: 450px;
+    margin-left: 10px;
+  }
+  .single-price a{
+    background: #1ebba3;
+    color:#fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    display: inline-block;
+  }
+  .single-price:hover{
+    transform: scale(1.05);
+  }
+  .single-price:before{
+    content:'';
+    width:100%;
+    height:350px;
+    background: #1ebba3;
+    position: absolute;
+    top: -150px;
+    left: 0;
+    transform: skewY(-20deg);
+  }
+  .single-price .price-header{
+    padding: 20px 20px 60px;
+    position: relative;
+    text-align: left;
+  }
+  .single-price .title{
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .single-price .price-value{
+    display: inline-block;
+    width: 170px;
+    height: 110px;
+    padding: 15px;
+    border-top: none;
+    position: relative;
+  }
+  .single-price .value{
+    width: 100%;
+    height: 100%;
+    background: #9a9ca0;
+    border: 5px solid #189582;
+    border-top: none;
+    z-index: 1;
+    position: relative;
+  }
+  .single-price .value:before,
+  .single-price .value:after{
+    content: '';
+    width: 97px;
+    height: 97px;
+    background: #9a9ca0;
+    border: 5px solid #262626;
+    border-bottom:none;
+    border-right: none;
+    position: absolute;
+    top: -48px;
+    left: 50%;
+    z-index: -1;
+    transform: translateX(-50%) scaleY(0.5)
+    rotate(45deg);
+  }
+  .single-price .value:after{
+    border-right: 5px solid #189582;
+    border-bottom: 5px solid #189582;
+    border-top: none;
+    border-left: none;
+    top: auto;
+    bottom: -48px;
+  }
+  .single-price .currency{
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 7px;
+    vertical-align: top;
+  }
+  .single-price .amount{
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 60px;
+  }
+  .single-price .amount span{
+    display:inline-block;
+    font-size: 15px;
+    font-weight: normal;
+    vertical-align: top;
+    margin-top: -7px;
+  }
+  .single-price .month{
+    display: block;
+    font-size: 16px;
+    line-height: 0;
+  }
+  .single-price .deals{
+    padding: 0 0 0;
+    margin-bottom: 20px;
+    list-style: none;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+  }
+  .single-price .deals li{
+    font-size: 16px;
+    color: #808080;
+    position: relative;
+  }

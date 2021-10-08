@@ -7,17 +7,58 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>DOCR</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-	<link rel="stylesheet" href="{% static 'style.css' %}" />
+	<link rel="stylesheet" href="{% static 'style4.css' %}" />
 	<link rel="stylesheet" href="{% static 'css/fixed.css' %}" />
 </head>
 <body>
-    Registration successful
-	<a href="{% url 'register' %}">continue</a>
-<!-- 
-	{% for message in messages%}
-	<h3>{{message}}</h3>
-	{% endfor %} -->
-	<h3>{{container}}</h3>
+   
+	<div id="home">
+
+		<!--Navigation-->
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+		  <a class="navbar-brand" href="#"><img src="{% static 'img/logo.png' %}" height="50px"></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+	  
+		  <div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+			  <li class="nav-item">
+						  <a class="nav-link"  href="{% url 'logout' %}" onclick="logout()">Logout</a>
+						  <!-- <form action="logout" method="post" class="nav-link">
+						   {% csrf_token %}   
+				<button class="nav-link" type="submit">LOG OUT</button>
+						  </form> -->
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#info">YOUR PDF's</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#features">PLAGIARISM REPORTS</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" href="#contact">CONTACT US</a>
+			  </li>
+			</ul>
+		  </div>
+		</nav>
+		<div class="landing">
+			<div class="home-wrap">
+				<div class="home-inner">
+				</div>
+			</div>
+		</div>
+		<div class="caption text-center">
+			{% for message in container%}
+			<h3>{{message}}</h3>
+			{% endfor %}
+			<a class="btn btn-outline-light btn-lg" href="{% url 'saving' %}">SAVE IT IN A TEXT FILE</a>
+		</div>
+	  </div>
+	  
+	
+
+	
 	
 
 </body>
