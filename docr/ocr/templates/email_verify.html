@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>  
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.min.css' %}" media="all">
+        <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>  
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background: url('../static/mail.jpg');
+            background-size: 300px 300px;
+        }
+
+        .main_div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mail_verify {
+            width: 600px;
+            height: 300px;
+            background: LINEAR-GRADIENT(-45DEG, #AB1DED, #FF00EA);
+        }
+
+        .effect5 {
+            position: relative;
+        }
+
+        .effect5:before,
+        .effect5:after {
+            z-index: -1;
+            position: absolute;
+            content: "";
+            bottom: 25px;
+            left: 10px;
+            width: 50%;
+            top: 80%;
+            max-width: 300px;
+            background: #777;
+            -webkit-box-shadow: 0 35px 20px #777;
+            -moz-box-shadow: 0 35px 20px #777;
+            box-shadow: 0 35px 20px #777;
+            -webkit-transform: rotate(-8deg);
+            -moz-transform: rotate(-8deg);
+            -o-transform: rotate(-8deg);
+            -ms-transform: rotate(-8deg);
+            transform: rotate(-8deg);
+        }
+
+        .effect5:after {
+            -webkit-transform: rotate(8deg);
+            -moz-transform: rotate(8deg);
+            -o-transform: rotate(8deg);
+            -ms-transform: rotate(8deg);
+            transform: rotate(8deg);
+            right: 10px;
+            left: auto;
+        }
+
+
+        .mail_verify h1 {
+            text-align: center;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .mail_verify p {
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        #code_field {
+            width: 60%;
+            margin-left: 20%;
+            height: 40px;
+            text-align: center;
+            font-size: 30px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            margin-left: 50%;
+            border: none;
+            outline: none;
+            background-color: #4F97A3;
+            color: white;
+            font-size: 20px;
+            transform: translateX(-50%);
+            box-shadow: 0 8px 6px -6px black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    {% csrf_token %}
+    <div class="main_div">
+        <div class="mail_verify effect5">
+            <h1>Verify your email address</h1>
+            <p>Please enter your four digit Verification code send you on email <span style="color:yellow">{{email}}</span></p>
+            <form action="email_verify" method="post">
+                {% csrf_token %}
+            <input type="text" name="code_field" id="code_field" placeholder="Enter your OTP" required><br>
+            <button type="submit">verify</button>
+        </form>
+        </div>
+    </div>
+    <div>
+        {% for message in messages %}
+        {% if message.tags == 'success'%}
+            <script type=text/javascript>toastr.success('{{ message }}')</script>
+        {% elif message.tags == 'info' %}
+            <script type=text/javascript>toastr.info('{{ message }}')</script>
+        {% elif message.tags == 'warning' %}
+            <script type=text/javascript>toastr.warning('{{ message }}')</script>
+        {% elif message.tags == 'error' %}
+            <script type=text/javascript>toastr.error('{{ message }}')</script>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <input type="text" value={{vcode}} id="ogcode"/>
+</body>
+</html>

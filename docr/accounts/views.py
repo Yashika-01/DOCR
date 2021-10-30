@@ -5,7 +5,14 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate
 import os
 import glob
+from django.contrib.auth import get_user_model
+from django.core.mail import send_mail
+import random, math
+from django.http import JsonResponse
 # Create your views here.
+
+
+vcode = random.randint(1000, 9999)
 
 def register(request):
     if request.method == 'POST':
@@ -24,9 +31,10 @@ def register(request):
             else:
                 user = User.objects.create_user(username = username , email = email,  password = password1)
                 user.save()
-                messages.success(request, 'Account registered successfully!')
-                messages.info(request, 'Login to avail the services')
-                return redirect('register')
+                request.session['og_code'] = vcode
+                send_mail('Welcome to  DOCR', f'thank you for registering with DOCR. Your verification code is {vcode}', 'docr.ocr@gmail.com', [email], fail_silently=False)
+                # return render(request, 'email_verify.html', {'email': email, 'vcode': vcode})
+                return redirect('email_verify')
         else:
             messages.error(request, 'Password mismatch')
             return redirect('register')
@@ -72,3 +80,23 @@ def logout(request):
     messages.info(request, 'Adios!, hope to see you soon buddy...')
     print('Adios!, hope to see you soon buddy...')
     return render(request, 'index.html')
+
+
+
+def email_verify(request):
+    vcode = request.session['og_code']
+    print(vcode)
+    if request.method == "POST":
+        user_code = request.POST['code_field']
+        if(int(user_code) == int(vcode)):
+            print('OTP verified')
+            messages.success(request, 'OTP verified')
+            messages.success(request, 'Account registered successfully!')
+            messages.info(request, 'Login to avail the services')
+            return render(request, 'register.html')
+        else:
+            print('OTP incorrect')
+            messages.error(request, 'Incorrect OTP')
+            return render(request, 'email_verify.html')
+
+    return render(request, 'email_verify.html')

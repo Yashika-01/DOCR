@@ -2,7 +2,7 @@ import os, io
 from google.cloud import vision_v1
 from google.cloud.vision_v1 import types
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'/home/yashika/git/DOCR/docr/nice-limiter-327917-abe220beaea5.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'/home/neha/Documents/Sem-5_Mini-project/DOCR/DOCR/docr/nice-limiter-327917-abe220beaea5.json'
 client = vision_v1.ImageAnnotatorClient()
 
 
