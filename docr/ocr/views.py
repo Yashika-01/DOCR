@@ -103,13 +103,13 @@ def makepdf(request):
       
 
       # pdf.output('media/img/Converted_pdf.pdf', "F")
-      pdf.output('/home/yashika/Downloads/Converted_pdf.pdf', "F")
+      pdf.output('/home/neha/Downloads/Converted_pdf.pdf', "F")
       print('successfully converted ')
       res = clean()
       if res == 'done':
             print('images deleted successfully..')
       # path = "media/img/Converted_pdf.pdf"
-      path = "/home/yashika/Downloads/Converted_pdf.pdf"
+      path = "/home/neha/Downloads/Converted_pdf.pdf"
       
       return FileResponse(open(path, 'rb'), content_type='application/pdf')
 
@@ -213,7 +213,7 @@ def sleepy(request):
 def saving(request):
       global op
       print(string)
-      with open('/home/yashika/Downloads/extracted_text.txt', 'w') as f:
+      with open('/home/neha/Downloads/extracted_text.txt', 'w') as f:
             for ops in op:
                   f.write(ops)
                   f.write('\n')
