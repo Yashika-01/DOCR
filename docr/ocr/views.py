@@ -208,12 +208,32 @@ def sleepy(request):
       var=final_sent
       global op 
       op = var
+      messages.success(request, "Text extracted successfully..")
       return render(request, 'success.html',{'container':var} )
 
-def saving(request):
+def saving_doc(request):
+      global op
+      print(string)
+      with open('/home/neha/Downloads/extracted_text.docx', 'w') as f:
+            for ops in op:
+                  f.write(ops)
+                  f.write('\n')
+      return render(request, 'done.html')
+
+def saving_text(request):
       global op
       print(string)
       with open('/home/neha/Downloads/extracted_text.txt', 'w') as f:
+            for ops in op:
+                  f.write(ops)
+                  f.write('\n')
+      return render(request, 'done.html')
+      
+
+def saving_pdf(request):
+      global op
+      print(string)
+      with open('/home/neha/Downloads/extracted_text.pdf', 'w') as f:
             for ops in op:
                   f.write(ops)
                   f.write('\n')

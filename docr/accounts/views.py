@@ -8,7 +8,7 @@ import glob
 from django.contrib.auth import get_user_model
 from django.core.mail import send_mail
 import random, math
-from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 
@@ -41,7 +41,8 @@ def register(request):
         
     else:
         return render(request,'register.html')
-    
+
+@ csrf_exempt    
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']

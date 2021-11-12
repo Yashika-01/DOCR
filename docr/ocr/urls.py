@@ -12,7 +12,9 @@ urlpatterns = [
     path('makepdf', views.makepdf, name='makepdf'),
     path('vision', views.vision, name='vision'),
     path('sleepy', views.sleepy, name='sleepy'),
-    path('saving', views.saving, name='saving'),
+    path('saving_text', views.saving_text, name='saving_text'),
+    path('saving_pdf', views.saving_pdf, name='saving_pdf'),
+    path('saving_doc', views.saving_doc, name='saving_doc'),
     path('continued', views.continued, name='continued'),
 
 

@@ -18,4 +18,4 @@ def sub(request):
 
 @ csrf_exempt
 def success(request):
-    return render(request, "success.html")
+    return render(request, "services.html")
