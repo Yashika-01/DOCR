@@ -68,29 +68,18 @@
                                     </div>
                                     <div class="price-value">
                                         <div class="value">
-                                            <span class="amount">₹19.<span>99</span>
-                                            <span class="month">/month</span>
+                                            <span class="amount">Free<span></span>
+                                            <span class="month"></span>
                                         </div>
                                     </div>
                                     
                                     <ul class="deals" style="margin-top:20px;">
-                                        <li>OCR Scanning</li>
+                                        <li>OCR Scanning (Page count limit= 10)</li>
                                         <li>Plagiarism Check</li>
                                        </ul>
-                                       <form action="success" method="POST">
+                                       <form action="service" method="POST">
                                         {% csrf_token %}  
-                                            <script src="https://checkout.razorpay.com/v1/checkout.js" 
-                                            data-key="rzp_test_QcFK6enY6yUXQ7"
-                                            data-amount="1990" 
-                                            data-currency="INR" 
-                                            data-order_id="{{payment.id}}" 
-                                            data-buttontext="Get Started"
-                                            data-name="Docr Project" 
-                                            data-description="Docr Payment"
-                                            data-image="img/logo.png" 
-                                            data-prefill.name="PC" 
-                                            data-prefill.email="abc@gmail.com"
-                                            data-theme.color="#F37254"></script> 
+                                            <button type="submit" >Get started</button>
                                         </form>  
                                     <!-- <a href="price1">Get Started</a> -->
                                 </div>
@@ -102,19 +91,19 @@
                                     </div>
                                     <div class="price-value">
                                         <div class="value">
-                                            <span class="amount">₹39.<span>99</span>
-                                            <span class="month">/3month</span>
+                                            <span class="amount">₹299.<span>99</span>
+                                            <span class="month">/month</span>
                                         </div>
                                     </div>
                                     <ul class="deals" style="margin-top:20px;">
-                                        <li>OCR Scanning</li>
+                                        <li>OCR Scanning (Page count limit= 2000)</li>
                                         <li>Plagiarism Check</li>
                                         </ul>
                                         <form action="success" method="POST">
                                             {% csrf_token %}  
                                                 <script src="https://checkout.razorpay.com/v1/checkout.js" 
                                                 data-key="rzp_test_QcFK6enY6yUXQ7"
-                                                data-amount="4990" 
+                                                data-amount="29900" 
                                                 data-currency="INR" 
                                                 data-order_id="{{payment.id}}" 
                                                 data-buttontext="Get Started"
@@ -134,19 +123,19 @@
                                     </div>
                                     <div class="price-value">
                                         <div class="value">
-                                            <span class="amount">₹99.<span>99</span>
-                                            <span class="month">/6month</span>
+                                            <span class="amount">₹499.<span>99</span>
+                                            <span class="month">/month</span>
                                         </div>
                                     </div>
                                     <ul class="deals" style="margin-top:20px;">
-                                        <li>OCR Scanning</li>
+                                        <li>OCR Scanning (Page count limit= 10000)</li>
                                         <li>Plagiarism Check</li>
                                     </ul>
                                     <form action="success" method="POST">
                                         {% csrf_token %}  
                                             <script src="https://checkout.razorpay.com/v1/checkout.js" 
                                             data-key="rzp_test_QcFK6enY6yUXQ7"
-                                            data-amount="9990" 
+                                            data-amount="49900" 
                                             data-currency="INR" 
                                             data-order_id="{{payment.id}}" 
                                             data-buttontext="Get Started"

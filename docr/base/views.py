@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import razorpay
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render, HttpResponse, redirect
 
 
 def sub(request):
@@ -19,3 +20,8 @@ def sub(request):
 @ csrf_exempt
 def success(request):
     return render(request, "services.html")
+
+
+@ csrf_exempt
+def service(request):
+    return redirect("ocr/templates/services.html")

@@ -51,20 +51,9 @@ def success(request):
 @csrf_exempt
 def digitize(request):
       if request.method== 'POST':
-            # uname = request.POST['user']
-            # path = f'media/img/{uname}'
-            # print(path)
-            # if os.path.isdir(path):
-            #       print('true')
-            # else:
-            #       print('false')
-            #       os.mkdir(path)
             form = ImageForm(request.POST, request.FILES)   
             if form.is_valid():
                   form.save()
-                  # photo = Image.objects.create()
-                  # image_file = request.FILES['image']
-                  # photo.image.save(path, image_file)
             form = ImageForm()
             img = Image.objects.all()
             return render(request, 'digitize.html',{'img': img, 'form': form})
@@ -134,18 +123,6 @@ def plagiarism(request):
 
 
 def vision(request):
-      # files = []
-      # files = glob.glob("media/img/*")
-      # print(files)
-      # files.sort()
-      # print(files)
-
-      # filecount = len(files)
-      # r = 'Extracted text: \n'
-      # for i in range(0, filecount):
-      #       resp = vision()
-      #       r = r + resp
-      #       i = i +1
       if request.method == 'POST':
             print('hello')
             sdir = "media/img/"
@@ -162,10 +139,7 @@ def vision(request):
                   fname = sdir + c
                   print(fname)
                   if os.path.exists(fname):
-                        # if i == 0:
-                        #       page = Image.open(fname)
-                        #       w, h = page.size
-                        #       pdf = FPDF(unit='pt', format=[w,h])
+
                         resp = gcs(fname)
                         r = r + resp
                   else:
@@ -182,7 +156,7 @@ def sleepy(request):
       global string
       var=string
       print(var)
-      #var = 'Extracted text: \nRemember that texture plays an important part in\nthe beauty of crochet. The finer mercerised threads\nare more effective for the delicate designs used for\ntablecloths, doilies, edgings and accessories, while\nthe heavier threads are used for bedspreads,\nchairbacks, luncheon mats, etc. Crochet hooks\nare made of steel, composition or bone. Steel\ncrochet hooks range in size from number 310,\nthe largest, to number 8, the smallest.\n" } We know from the diaries of Samuel Pepys\nthat he was a\ngreat man for lace\npaying\nas much as 3 for a lace collar. But this\ndidn\'t mean he was prepared to do as much\nfor his lady, for he records testily: \'My wife\nand I fell out about\nmy\nnot being willing\nto have her gown laced.\'\n" }'
+      
       files = []
       files = glob.glob("media/img/*")
       files.sort()
